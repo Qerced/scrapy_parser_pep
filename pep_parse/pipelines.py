@@ -1,8 +1,8 @@
-from collections import defaultdict
 import csv
+from collections import defaultdict
 from datetime import datetime
 
-from pep_parse.constants import BASE_DIR, DATETIME_FORMAT, RESULTS_FOLDER
+from pep_parse.settings import BASE_DIR, DATETIME_FORMAT, RESULTS_FOLDER
 
 
 class PepParsePipeline:
@@ -15,15 +15,16 @@ class PepParsePipeline:
 
     def close_spider(self, spider):
         results_path = BASE_DIR / RESULTS_FOLDER
-        results_path.mkdir(exist_ok=True)
         filename = results_path / (
             f'status_summary_{datetime.now().strftime(DATETIME_FORMAT)}.csv'
         )
         with open(filename, 'w', encoding='utf-8') as file:
-            csv.writer(file, csv.unix_dialect).writerows(
-                [
+            csv.writer(
+                file, csv.unix_dialect, quoting=csv.QUOTE_NONE
+            ).writerows(
+                (
                     ('Статус', 'Количество'),
                     *self.statuses.items(),
                     ('Всего', sum(self.statuses.values()))
-                ]
+                )
             )

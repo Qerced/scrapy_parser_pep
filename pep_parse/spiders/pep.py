@@ -5,7 +5,6 @@ from pep_parse.items import PepParseItem
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
-    allowed_domains = ['peps.python.org']
     start_urls = ['https://peps.python.org/']
 
     def parse(self, response):
@@ -21,9 +20,7 @@ class PepSpider(scrapy.Spider):
 
     def parse_pep(self, response, number, name):
         yield PepParseItem(
-            dict(
-                number=number,
-                name=name,
-                status=response.css('dl[class^="rfc2822"] abbr::text').get()
-            )
+            number=number,
+            name=name,
+            status=response.css('dl[class^="rfc2822"] abbr::text').get()
         )
