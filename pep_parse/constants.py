@@ -1,5 +1,7 @@
 from pathlib import Path
 
 
-BASE_DIR = Path(__file__).parent
-RESULTS_DIR = BASE_DIR / 'results'
+BASE_DIR = Path().cwd()
+RESULTS_FOLDER = 'results'
+
+DATETIME_FORMAT = '%Y-%m-%dT%H-%M-%S'
