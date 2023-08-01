@@ -48,4 +48,4 @@ scrapy crawl pep
 - общее количество PEP.
 
 ## Авторы:
-- https://github.com/Qerced
+- [Vakauskas Vitas](https://github.com/Qerced)
