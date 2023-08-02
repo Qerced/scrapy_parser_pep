@@ -5,7 +5,8 @@ from pep_parse.items import PepParseItem
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
-    start_urls = ['https://peps.python.org/']
+    allowed_domains = ['peps.python.org']
+    start_urls = [f'https://{allowed_domains[0]}/']
 
     def parse(self, response):
         for pep in response.css('#numerical-index tbody tr'):
