@@ -9,7 +9,7 @@ DATETIME_FORMAT = '%Y-%m-%dT%H-%M-%S'
 BOT_NAME = 'pep_parse'
 
 SPIDER_MODULES = ['pep_parse.spiders']
-NEWSPIDER_MODULE = SPIDER_MODULES
+NEWSPIDER_MODULE = SPIDER_MODULES[0]
 
 ROBOTSTXT_OBEY = True
 
@@ -23,9 +23,4 @@ FEEDS = {
         'fields': ['number', 'name', 'status'],
         'overwrite': True
     }
-}
-
-MYEXT_ENABLED = True
-EXTENSIONS = {
-    "pep_parse.extensions.SpiderCreateDownloadDir": 100,
 }
