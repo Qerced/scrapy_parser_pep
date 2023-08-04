@@ -14,8 +14,7 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
-        results_path = BASE_DIR / RESULTS_FOLDER
-        filename = results_path / (
+        filename = BASE_DIR / RESULTS_FOLDER / (
             f'status_summary_{datetime.now().strftime(DATETIME_FORMAT)}.csv'
         )
         with open(filename, 'w', encoding='utf-8') as file:
