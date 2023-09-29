@@ -2,7 +2,6 @@
 Проект представляет собой парсер документации Python PEP (Python Enhancement Proposals) с оффициальной [страницы](https://peps.python.org/pep-0000/#introduction) языка.
 
 ## Технический стек
-В проекте используются следующие технологии и инструменты:
 
 - Язык программирования: Python 3.9
 - Фреймворк для веб-парсинга: [Scrapy](https://docs.scrapy.org/en/latest/)
